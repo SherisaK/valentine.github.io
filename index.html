@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page 1</title>
+	<style>
+		body {
+			background-image: url('pic.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+		}
+		.button{
+			display: inline-block;
+			padding: 10px 20px;
+			margin: 10px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+		.yes-button{
+			background-color: green;
+			color: white;
+		}
+		.no-button{
+			background-color: red;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<h1>Do you want to continue?</h1>
+	<button class="button yes-button" onclick="openNewPage()">Yes</button>
+	<button class="button no-button" onclick="showError()">No</button>
+	<script>
+		function openNewPage(){
+			window.open('page2.html')
+		}
+		
+		function showError(){
+			alert('Error! Try again.');
+		}
+	</script>
+</body>
+</html>
