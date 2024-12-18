@@ -17,7 +17,7 @@
 			padding: 0;
 			box-sizing: border-box;
 		}
-		.button{
+		.button {
 			display: inline-block;
 			padding: 10px 20px;
 			margin: 10px;
@@ -26,27 +26,67 @@
 			cursor: pointer;
 			font-size: 16px;
 		}
-		.yes-button{
+		.yes-button {
 			background-color: green;
 			color: white;
 		}
-		.no-button{
+		.no-button {
 			background-color: red;
 			color: white;
 		}
-		#h1{
+		#h1 {
 			text-align: center;
 			font-weight: bold;
-			font-family:cursive;
+			font-family: cursive;
+			color: white;
+			text-shadow: 2px 2px 4px #000;
 		}
-		#h2{
+		#h2 {
 			text-align: center;
 			font-family: cursive;
+			color: white;
+			text-shadow: 2px 2px 4px #000;
+		}
+		#responseInput {
+			padding: 10px;
+			margin: 10px 0;
+			border: 2px solid #ddd;
+			border-radius: 5px;
+			font-size: 16px;
+			width: 300px;
+			text-align: center;
+		}
+		.next-button {
+			background-color: blue;
+			color: white;
+			font-weight: bold;
 		}
 	</style>
 </head>
 <body>
-	<h1 id = "h1">DARLING I HAVE A VERY IMPORTANT QUESTION FOR YOU</h1>
+	<h1 id="h1">Hey baby, How are we today?</h1>
+	<input type="text" id="responseInput" placeholder="Type how you're feeling..." />
+	<button class="button next-button" onclick="goToNextPage()">Next</button>
+
+	<script>
+		function goToNextPage() {
+			const response = document.getElementById("responseInput").value;
+			if (response.trim() === "") {
+				alert("Please let me know how you're feeling before we continue!");
+				return;
+			}
+
+			// Save the input to sessionStorage so we can use it on the next page
+			sessionStorage.setItem("response", response);
+			window.location.href = "page2.html";
+		}
+	</script>
+</body>
+</html>
+
+</head>
+<body>
+	<h1 id = "h1">Hey baby, How are we today?</h1>
 	<h2 id = "h2">WILL YOU DO ME THE HONORS OF BEING MY VALENTINE?</h2>
 	<button class="button yes-button" onclick="openNewPage()">Yes</button>
 	<button class="button no-button" onclick="showError()">No</button>
