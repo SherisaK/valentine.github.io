@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2</title>
+    <style>
+        body {
+            background-image: url('pic2.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .yes-button {
+            background-color: green;
+            color: white;
+        }
+        .no-button {
+            background-color: red;
+            color: white;
+        }
+        h1, h2 {
+            text-align: center;
+            font-family: cursive;
+            color: white;
+            text-shadow: 2px 2px 4px #000;
+        }
+        h1 {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Retrieve the saved response from the previous page
+        const response = sessionStorage.getItem("response") || "Good";
+
+        // Dynamically generate the content
+        document.write(`
+            <h1>I'm assuming you said "Good" or what I'm about to say next will be very embarrassing.</h1>
+            <h2>That's great to hear, baby!</h2>
+            <h2>WILL YOU DO ME THE HONORS OF BEING MY VALENTINE?</h2>
+            <button class="button yes-button" onclick="openNewPage()">Yes</button>
+            <button class="button no-button" onclick="showError()">No</button>
+        `);
+    </script>
+    <script>
+        function openNewPage() {
+            window.open("page3.html");
+        }
+
+        function showError() {
+            alert("Error! Incorrect answer. Try again.");
+        }
+    </script>
+</body>
+</html>
